@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.andidz.bizcore.mapper.ProductionPlanMapper" >
+  <resultMap id="BaseResultMap" type="com.andidz.bizcore.domain.ProductionPlan" >
+    <id column="planId" property="planid" jdbcType="INTEGER" />
+    <result column="orderNumb" property="ordernumb" jdbcType="VARCHAR" />
+    <result column="com.andidz.bizcore.data" property="com.andidz.bizcore.data" jdbcType="TIMESTAMP" />
+    <result column="planningProduce" property="planningproduce" jdbcType="INTEGER" />
+    <result column="completedProduce" property="completedproduce" jdbcType="INTEGER" />
+    <result column="targetCompletion" property="targetcompletion" jdbcType="DOUBLE" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="feature" property="feature" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    planId, orderNumb, com.andidz.bizcore.data, planningProduce, completedProduce, targetCompletion, createTime,
+    updateTime, status, feature
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from production_plan
+    where planId = #{planid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from production_plan
+    where planId = #{planid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.andidz.bizcore.domain.ProductionPlan" >
+    insert into production_plan (planId, orderNumb, com.andidz.bizcore.data,
+    planningProduce, completedProduce, targetCompletion,
+    createTime, updateTime, status,
+    feature)
+    values (#{planid,jdbcType=INTEGER}, #{ordernumb,jdbcType=VARCHAR}, #{com.andidz.bizcore.data,jdbcType=TIMESTAMP},
+    #{planningproduce,jdbcType=INTEGER}, #{completedproduce,jdbcType=INTEGER}, #{targetcompletion,jdbcType=DOUBLE},
+    #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER},
+    #{feature,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.andidz.bizcore.domain.ProductionPlan" >
+    insert into production_plan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="planid != null" >
+        planId,
+      </if>
+      <if test="ordernumb != null" >
+        orderNumb,
+      </if>
+      <if test="com.andidz.bizcore.data != null" >
+        com.andidz.bizcore.data,
+      </if>
+      <if test="planningproduce != null" >
+        planningProduce,
+      </if>
+      <if test="completedproduce != null" >
+        completedProduce,
+      </if>
+      <if test="targetcompletion != null" >
+        targetCompletion,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="feature != null" >
+        feature,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="planid != null" >
+        #{planid,jdbcType=INTEGER},
+      </if>
+      <if test="ordernumb != null" >
+        #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="com.andidz.bizcore.data != null" >
+        #{com.andidz.bizcore.data,jdbcType=TIMESTAMP},
+      </if>
+      <if test="planningproduce != null" >
+        #{planningproduce,jdbcType=INTEGER},
+      </if>
+      <if test="completedproduce != null" >
+        #{completedproduce,jdbcType=INTEGER},
+      </if>
+      <if test="targetcompletion != null" >
+        #{targetcompletion,jdbcType=DOUBLE},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null" >
+        #{feature,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.andidz.bizcore.domain.ProductionPlan" >
+    update production_plan
+    <set >
+      <if test="ordernumb != null" >
+        orderNumb = #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="com.andidz.bizcore.data != null" >
+        com.andidz.bizcore.data = #{com.andidz.bizcore.data,jdbcType=TIMESTAMP},
+      </if>
+      <if test="planningproduce != null" >
+        planningProduce = #{planningproduce,jdbcType=INTEGER},
+      </if>
+      <if test="completedproduce != null" >
+        completedProduce = #{completedproduce,jdbcType=INTEGER},
+      </if>
+      <if test="targetcompletion != null" >
+        targetCompletion = #{targetcompletion,jdbcType=DOUBLE},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null" >
+        feature = #{feature,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where planId = #{planid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.andidz.bizcore.domain.ProductionPlan" >
+    update production_plan
+    set orderNumb = #{ordernumb,jdbcType=VARCHAR},
+    com.andidz.bizcore.data = #{com.andidz.bizcore.data,jdbcType=TIMESTAMP},
+    planningProduce = #{planningproduce,jdbcType=INTEGER},
+    completedProduce = #{completedproduce,jdbcType=INTEGER},
+    targetCompletion = #{targetcompletion,jdbcType=DOUBLE},
+    createTime = #{createtime,jdbcType=TIMESTAMP},
+    updateTime = #{updatetime,jdbcType=TIMESTAMP},
+    status = #{status,jdbcType=INTEGER},
+    feature = #{feature,jdbcType=VARCHAR}
+    where planId = #{planid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.andidz.bizcore.mapper.ProductionOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.andidz.bizcore.domain.ProductionOrder" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="orderNumb" property="ordernumb" jdbcType="VARCHAR" />
+    <result column="productionType" property="productiontype" jdbcType="INTEGER" />
+    <result column="productNumb" property="productnumb" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="expctStartTime" property="expctstarttime" jdbcType="TIMESTAMP" />
+    <result column="expctEndTime" property="expctendtime" jdbcType="TIMESTAMP" />
+    <result column="completedProduce" property="completedproduce" jdbcType="INTEGER" />
+    <result column="feature" property="feature" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, orderNumb, productionType, productNumb, createTime, updateTime, status, expctStartTime, 
+    expctEndTime, completedProduce, feature
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from production_order
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from production_order
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.andidz.bizcore.domain.ProductionOrder" >
+    insert into production_order (Id, orderNumb, productionType, 
+      productNumb, createTime, updateTime, 
+      status, expctStartTime, expctEndTime, 
+      completedProduce, feature)
+    values (#{id,jdbcType=INTEGER}, #{ordernumb,jdbcType=VARCHAR}, #{productiontype,jdbcType=INTEGER}, 
+      #{productnumb,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{expctstarttime,jdbcType=TIMESTAMP}, #{expctendtime,jdbcType=TIMESTAMP}, 
+      #{completedproduce,jdbcType=INTEGER}, #{feature,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.andidz.bizcore.domain.ProductionOrder" >
+    insert into production_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="ordernumb != null" >
+        orderNumb,
+      </if>
+      <if test="productiontype != null" >
+        productionType,
+      </if>
+      <if test="productnumb != null" >
+        productNumb,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="expctstarttime != null" >
+        expctStartTime,
+      </if>
+      <if test="expctendtime != null" >
+        expctEndTime,
+      </if>
+      <if test="completedproduce != null" >
+        completedProduce,
+      </if>
+      <if test="feature != null" >
+        feature,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ordernumb != null" >
+        #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="productiontype != null" >
+        #{productiontype,jdbcType=INTEGER},
+      </if>
+      <if test="productnumb != null" >
+        #{productnumb,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="expctstarttime != null" >
+        #{expctstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expctendtime != null" >
+        #{expctendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completedproduce != null" >
+        #{completedproduce,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null" >
+        #{feature,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.andidz.bizcore.domain.ProductionOrder" >
+    update production_order
+    <set >
+      <if test="ordernumb != null" >
+        orderNumb = #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="productiontype != null" >
+        productionType = #{productiontype,jdbcType=INTEGER},
+      </if>
+      <if test="productnumb != null" >
+        productNumb = #{productnumb,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="expctstarttime != null" >
+        expctStartTime = #{expctstarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expctendtime != null" >
+        expctEndTime = #{expctendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completedproduce != null" >
+        completedProduce = #{completedproduce,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null" >
+        feature = #{feature,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.andidz.bizcore.domain.ProductionOrder" >
+    update production_order
+    set orderNumb = #{ordernumb,jdbcType=VARCHAR},
+      productionType = #{productiontype,jdbcType=INTEGER},
+      productNumb = #{productnumb,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      expctStartTime = #{expctstarttime,jdbcType=TIMESTAMP},
+      expctEndTime = #{expctendtime,jdbcType=TIMESTAMP},
+      completedProduce = #{completedproduce,jdbcType=INTEGER},
+      feature = #{feature,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

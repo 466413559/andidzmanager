@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.andidz.bizcore.mapper.ProductionTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.andidz.bizcore.domain.ProductionTask" >
+    <id column="taskId" property="taskid" jdbcType="INTEGER" />
+    <result column="orderNumb" property="ordernumb" jdbcType="VARCHAR" />
+    <result column="workshopNumb" property="workshopnumb" jdbcType="INTEGER" />
+    <result column="planningTotalProduce" property="planningtotalproduce" jdbcType="INTEGER" />
+    <result column="totalProduce" property="totalproduce" jdbcType="INTEGER" />
+    <result column="totalQualify" property="totalqualify" jdbcType="INTEGER" />
+    <result column="totalDeliver" property="totaldeliver" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="feature" property="feature" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    taskId, orderNumb, workshopNumb, planningTotalProduce, totalProduce, totalQualify, 
+    totalDeliver, createTime, status, feature
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from production_task
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from production_task
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.andidz.bizcore.domain.ProductionTask" >
+    insert into production_task (taskId, orderNumb, workshopNumb, 
+      planningTotalProduce, totalProduce, totalQualify, 
+      totalDeliver, createTime, status, 
+      feature)
+    values (#{taskid,jdbcType=INTEGER}, #{ordernumb,jdbcType=VARCHAR}, #{workshopnumb,jdbcType=INTEGER}, 
+      #{planningtotalproduce,jdbcType=INTEGER}, #{totalproduce,jdbcType=INTEGER}, #{totalqualify,jdbcType=INTEGER}, 
+      #{totaldeliver,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{feature,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.andidz.bizcore.domain.ProductionTask" >
+    insert into production_task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="taskid != null" >
+        taskId,
+      </if>
+      <if test="ordernumb != null" >
+        orderNumb,
+      </if>
+      <if test="workshopnumb != null" >
+        workshopNumb,
+      </if>
+      <if test="planningtotalproduce != null" >
+        planningTotalProduce,
+      </if>
+      <if test="totalproduce != null" >
+        totalProduce,
+      </if>
+      <if test="totalqualify != null" >
+        totalQualify,
+      </if>
+      <if test="totaldeliver != null" >
+        totalDeliver,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="feature != null" >
+        feature,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="ordernumb != null" >
+        #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="workshopnumb != null" >
+        #{workshopnumb,jdbcType=INTEGER},
+      </if>
+      <if test="planningtotalproduce != null" >
+        #{planningtotalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalproduce != null" >
+        #{totalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalqualify != null" >
+        #{totalqualify,jdbcType=INTEGER},
+      </if>
+      <if test="totaldeliver != null" >
+        #{totaldeliver,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null" >
+        #{feature,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.andidz.bizcore.domain.ProductionTask" >
+    update production_task
+    <set >
+      <if test="ordernumb != null" >
+        orderNumb = #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="workshopnumb != null" >
+        workshopNumb = #{workshopnumb,jdbcType=INTEGER},
+      </if>
+      <if test="planningtotalproduce != null" >
+        planningTotalProduce = #{planningtotalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalproduce != null" >
+        totalProduce = #{totalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalqualify != null" >
+        totalQualify = #{totalqualify,jdbcType=INTEGER},
+      </if>
+      <if test="totaldeliver != null" >
+        totalDeliver = #{totaldeliver,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null" >
+        feature = #{feature,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.andidz.bizcore.domain.ProductionTask" >
+    update production_task
+    set orderNumb = #{ordernumb,jdbcType=VARCHAR},
+      workshopNumb = #{workshopnumb,jdbcType=INTEGER},
+      planningTotalProduce = #{planningtotalproduce,jdbcType=INTEGER},
+      totalProduce = #{totalproduce,jdbcType=INTEGER},
+      totalQualify = #{totalqualify,jdbcType=INTEGER},
+      totalDeliver = #{totaldeliver,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      feature = #{feature,jdbcType=VARCHAR}
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </update>
+</mapper>
