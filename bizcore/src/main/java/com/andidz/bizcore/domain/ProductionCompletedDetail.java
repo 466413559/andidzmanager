@@ -15,9 +15,9 @@ public class ProductionCompletedDetail {
 
     private String type;
 
-    private String completedproduce;
+    private String completedProduce;
 
-    private String qualifiedproduce;
+    private String qualifiedProduce;
 
     private String operator;
 
@@ -79,20 +79,20 @@ public class ProductionCompletedDetail {
         this.type = type == null ? null : type.trim();
     }
 
-    public String getCompletedproduce() {
-        return completedproduce;
+    public String getCompletedProduce() {
+        return completedProduce;
     }
 
-    public void setCompletedproduce(String completedproduce) {
-        this.completedproduce = completedproduce == null ? null : completedproduce.trim();
+    public void setCompletedProduce(String completedProduce) {
+        this.completedProduce = completedProduce == null ? null : completedProduce.trim();
     }
 
-    public String getQualifiedproduce() {
-        return qualifiedproduce;
+    public String getQualifiedProduce() {
+        return qualifiedProduce;
     }
 
-    public void setQualifiedproduce(String qualifiedproduce) {
-        this.qualifiedproduce = qualifiedproduce == null ? null : qualifiedproduce.trim();
+    public void setQualifiedProduce(String qualifiedProduce) {
+        this.qualifiedProduce = qualifiedProduce == null ? null : qualifiedProduce.trim();
     }
 
     public String getOperator() {

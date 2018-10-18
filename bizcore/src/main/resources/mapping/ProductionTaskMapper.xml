@@ -1,33 +1,112 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.andidz.bizcore.mapper.ProductionTaskMapper" >
-  <resultMap id="BaseResultMap" type="com.andidz.bizcore.domain.ProductionTask" >
-    <id column="taskId" property="taskid" jdbcType="INTEGER" />
-    <result column="orderNumb" property="ordernumb" jdbcType="VARCHAR" />
-    <result column="workshopNumb" property="workshopnumb" jdbcType="INTEGER" />
-    <result column="planningTotalProduce" property="planningtotalproduce" jdbcType="INTEGER" />
-    <result column="totalProduce" property="totalproduce" jdbcType="INTEGER" />
-    <result column="totalQualify" property="totalqualify" jdbcType="INTEGER" />
-    <result column="totalDeliver" property="totaldeliver" jdbcType="INTEGER" />
-    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-    <result column="feature" property="feature" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.andidz.bizcore.mapper.ProductionTaskMapper">
+  <resultMap id="BaseResultMap" type="com.andidz.bizcore.domain.ProductionTask">
+    <id column="taskId" jdbcType="INTEGER" property="taskid" />
+    <result column="orderNumb" jdbcType="VARCHAR" property="ordernumb" />
+    <result column="workshopNumb" jdbcType="INTEGER" property="workshopnumb" />
+    <result column="planningTotalProduce" jdbcType="INTEGER" property="planningtotalproduce" />
+    <result column="totalProduce" jdbcType="INTEGER" property="totalproduce" />
+    <result column="totalQualify" jdbcType="INTEGER" property="totalqualify" />
+    <result column="totalDeliver" jdbcType="INTEGER" property="totaldeliver" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="feature" jdbcType="VARCHAR" property="feature" />
   </resultMap>
-  <sql id="Base_Column_List" >
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
     taskId, orderNumb, workshopNumb, planningTotalProduce, totalProduce, totalQualify, 
     totalDeliver, createTime, status, feature
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByExample" parameterType="com.andidz.bizcore.domain.ProductionTaskExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from production_task
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from production_task
     where taskId = #{taskid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from production_task
     where taskId = #{taskid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.andidz.bizcore.domain.ProductionTask" >
+  <delete id="deleteByExample" parameterType="com.andidz.bizcore.domain.ProductionTaskExample">
+    delete from production_task
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.andidz.bizcore.domain.ProductionTask">
     insert into production_task (taskId, orderNumb, workshopNumb, 
       planningTotalProduce, totalProduce, totalQualify, 
       totalDeliver, createTime, status, 
@@ -37,107 +116,604 @@
       #{totaldeliver,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
       #{feature,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.andidz.bizcore.domain.ProductionTask" >
+  <insert id="insertSelective" parameterType="com.andidz.bizcore.domain.ProductionTask">
     insert into production_task
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="taskid != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskid != null">
         taskId,
       </if>
-      <if test="ordernumb != null" >
+      <if test="ordernumb != null">
         orderNumb,
       </if>
-      <if test="workshopnumb != null" >
+      <if test="workshopnumb != null">
         workshopNumb,
       </if>
-      <if test="planningtotalproduce != null" >
+      <if test="planningtotalproduce != null">
         planningTotalProduce,
       </if>
-      <if test="totalproduce != null" >
+      <if test="totalproduce != null">
         totalProduce,
       </if>
-      <if test="totalqualify != null" >
+      <if test="totalqualify != null">
         totalQualify,
       </if>
-      <if test="totaldeliver != null" >
+      <if test="totaldeliver != null">
         totalDeliver,
       </if>
-      <if test="createtime != null" >
+      <if test="createtime != null">
         createTime,
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         status,
       </if>
-      <if test="feature != null" >
+      <if test="feature != null">
         feature,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="taskid != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskid != null">
         #{taskid,jdbcType=INTEGER},
       </if>
-      <if test="ordernumb != null" >
+      <if test="ordernumb != null">
         #{ordernumb,jdbcType=VARCHAR},
       </if>
-      <if test="workshopnumb != null" >
+      <if test="workshopnumb != null">
         #{workshopnumb,jdbcType=INTEGER},
       </if>
-      <if test="planningtotalproduce != null" >
+      <if test="planningtotalproduce != null">
         #{planningtotalproduce,jdbcType=INTEGER},
       </if>
-      <if test="totalproduce != null" >
+      <if test="totalproduce != null">
         #{totalproduce,jdbcType=INTEGER},
       </if>
-      <if test="totalqualify != null" >
+      <if test="totalqualify != null">
         #{totalqualify,jdbcType=INTEGER},
       </if>
-      <if test="totaldeliver != null" >
+      <if test="totaldeliver != null">
         #{totaldeliver,jdbcType=INTEGER},
       </if>
-      <if test="createtime != null" >
+      <if test="createtime != null">
         #{createtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         #{status,jdbcType=INTEGER},
       </if>
-      <if test="feature != null" >
+      <if test="feature != null">
         #{feature,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.andidz.bizcore.domain.ProductionTask" >
+  <select id="countByExample" parameterType="com.andidz.bizcore.domain.ProductionTaskExample" resultType="java.lang.Integer">
+    select count(*) from production_task
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
     update production_task
-    <set >
-      <if test="ordernumb != null" >
+    <set>
+      <if test="record.taskid != null">
+        taskId = #{record.taskid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ordernumb != null">
+        orderNumb = #{record.ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workshopnumb != null">
+        workshopNumb = #{record.workshopnumb,jdbcType=INTEGER},
+      </if>
+      <if test="record.planningtotalproduce != null">
+        planningTotalProduce = #{record.planningtotalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalproduce != null">
+        totalProduce = #{record.totalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalqualify != null">
+        totalQualify = #{record.totalqualify,jdbcType=INTEGER},
+      </if>
+      <if test="record.totaldeliver != null">
+        totalDeliver = #{record.totaldeliver,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null">
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.feature != null">
+        feature = #{record.feature,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update production_task
+    set taskId = #{record.taskid,jdbcType=INTEGER},
+      orderNumb = #{record.ordernumb,jdbcType=VARCHAR},
+      workshopNumb = #{record.workshopnumb,jdbcType=INTEGER},
+      planningTotalProduce = #{record.planningtotalproduce,jdbcType=INTEGER},
+      totalProduce = #{record.totalproduce,jdbcType=INTEGER},
+      totalQualify = #{record.totalqualify,jdbcType=INTEGER},
+      totalDeliver = #{record.totaldeliver,jdbcType=INTEGER},
+      createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
+      feature = #{record.feature,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.andidz.bizcore.domain.ProductionTask">
+    update production_task
+    <set>
+      <if test="ordernumb != null">
         orderNumb = #{ordernumb,jdbcType=VARCHAR},
       </if>
-      <if test="workshopnumb != null" >
+      <if test="workshopnumb != null">
         workshopNumb = #{workshopnumb,jdbcType=INTEGER},
       </if>
-      <if test="planningtotalproduce != null" >
+      <if test="planningtotalproduce != null">
         planningTotalProduce = #{planningtotalproduce,jdbcType=INTEGER},
       </if>
-      <if test="totalproduce != null" >
+      <if test="totalproduce != null">
         totalProduce = #{totalproduce,jdbcType=INTEGER},
       </if>
-      <if test="totalqualify != null" >
+      <if test="totalqualify != null">
         totalQualify = #{totalqualify,jdbcType=INTEGER},
       </if>
-      <if test="totaldeliver != null" >
+      <if test="totaldeliver != null">
         totalDeliver = #{totaldeliver,jdbcType=INTEGER},
       </if>
-      <if test="createtime != null" >
+      <if test="createtime != null">
         createTime = #{createtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         status = #{status,jdbcType=INTEGER},
       </if>
-      <if test="feature != null" >
+      <if test="feature != null">
         feature = #{feature,jdbcType=VARCHAR},
       </if>
     </set>
     where taskId = #{taskid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.andidz.bizcore.domain.ProductionTask" >
+  <update id="updateByPrimaryKey" parameterType="com.andidz.bizcore.domain.ProductionTask">
+    update production_task
+    set orderNumb = #{ordernumb,jdbcType=VARCHAR},
+      workshopNumb = #{workshopnumb,jdbcType=INTEGER},
+      planningTotalProduce = #{planningtotalproduce,jdbcType=INTEGER},
+      totalProduce = #{totalproduce,jdbcType=INTEGER},
+      totalQualify = #{totalqualify,jdbcType=INTEGER},
+      totalDeliver = #{totaldeliver,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      feature = #{feature,jdbcType=VARCHAR}
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.andidz.bizcore.domain.ProductionTask">
+    <id column="taskId" jdbcType="INTEGER" property="taskid" />
+    <result column="orderNumb" jdbcType="VARCHAR" property="ordernumb" />
+    <result column="workshopNumb" jdbcType="INTEGER" property="workshopnumb" />
+    <result column="planningTotalProduce" jdbcType="INTEGER" property="planningtotalproduce" />
+    <result column="totalProduce" jdbcType="INTEGER" property="totalproduce" />
+    <result column="totalQualify" jdbcType="INTEGER" property="totalqualify" />
+    <result column="totalDeliver" jdbcType="INTEGER" property="totaldeliver" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="feature" jdbcType="VARCHAR" property="feature" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    taskId, orderNumb, workshopNumb, planningTotalProduce, totalProduce, totalQualify, 
+    totalDeliver, createTime, status, feature
+  </sql>
+  <select id="selectByExample" parameterType="com.andidz.bizcore.domain.ProductionTaskExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from production_task
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from production_task
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from production_task
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.andidz.bizcore.domain.ProductionTaskExample">
+    delete from production_task
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.andidz.bizcore.domain.ProductionTask">
+    insert into production_task (taskId, orderNumb, workshopNumb, 
+      planningTotalProduce, totalProduce, totalQualify, 
+      totalDeliver, createTime, status, 
+      feature)
+    values (#{taskid,jdbcType=INTEGER}, #{ordernumb,jdbcType=VARCHAR}, #{workshopnumb,jdbcType=INTEGER}, 
+      #{planningtotalproduce,jdbcType=INTEGER}, #{totalproduce,jdbcType=INTEGER}, #{totalqualify,jdbcType=INTEGER}, 
+      #{totaldeliver,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{feature,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.andidz.bizcore.domain.ProductionTask">
+    insert into production_task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskid != null">
+        taskId,
+      </if>
+      <if test="ordernumb != null">
+        orderNumb,
+      </if>
+      <if test="workshopnumb != null">
+        workshopNumb,
+      </if>
+      <if test="planningtotalproduce != null">
+        planningTotalProduce,
+      </if>
+      <if test="totalproduce != null">
+        totalProduce,
+      </if>
+      <if test="totalqualify != null">
+        totalQualify,
+      </if>
+      <if test="totaldeliver != null">
+        totalDeliver,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="feature != null">
+        feature,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskid != null">
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="ordernumb != null">
+        #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="workshopnumb != null">
+        #{workshopnumb,jdbcType=INTEGER},
+      </if>
+      <if test="planningtotalproduce != null">
+        #{planningtotalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalproduce != null">
+        #{totalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalqualify != null">
+        #{totalqualify,jdbcType=INTEGER},
+      </if>
+      <if test="totaldeliver != null">
+        #{totaldeliver,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null">
+        #{feature,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.andidz.bizcore.domain.ProductionTaskExample" resultType="java.lang.Integer">
+    select count(*) from production_task
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update production_task
+    <set>
+      <if test="record.taskid != null">
+        taskId = #{record.taskid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ordernumb != null">
+        orderNumb = #{record.ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workshopnumb != null">
+        workshopNumb = #{record.workshopnumb,jdbcType=INTEGER},
+      </if>
+      <if test="record.planningtotalproduce != null">
+        planningTotalProduce = #{record.planningtotalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalproduce != null">
+        totalProduce = #{record.totalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalqualify != null">
+        totalQualify = #{record.totalqualify,jdbcType=INTEGER},
+      </if>
+      <if test="record.totaldeliver != null">
+        totalDeliver = #{record.totaldeliver,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null">
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.feature != null">
+        feature = #{record.feature,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update production_task
+    set taskId = #{record.taskid,jdbcType=INTEGER},
+      orderNumb = #{record.ordernumb,jdbcType=VARCHAR},
+      workshopNumb = #{record.workshopnumb,jdbcType=INTEGER},
+      planningTotalProduce = #{record.planningtotalproduce,jdbcType=INTEGER},
+      totalProduce = #{record.totalproduce,jdbcType=INTEGER},
+      totalQualify = #{record.totalqualify,jdbcType=INTEGER},
+      totalDeliver = #{record.totaldeliver,jdbcType=INTEGER},
+      createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
+      feature = #{record.feature,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.andidz.bizcore.domain.ProductionTask">
+    update production_task
+    <set>
+      <if test="ordernumb != null">
+        orderNumb = #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="workshopnumb != null">
+        workshopNumb = #{workshopnumb,jdbcType=INTEGER},
+      </if>
+      <if test="planningtotalproduce != null">
+        planningTotalProduce = #{planningtotalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalproduce != null">
+        totalProduce = #{totalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalqualify != null">
+        totalQualify = #{totalqualify,jdbcType=INTEGER},
+      </if>
+      <if test="totaldeliver != null">
+        totalDeliver = #{totaldeliver,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null">
+        feature = #{feature,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.andidz.bizcore.domain.ProductionTask">
+    update production_task
+    set orderNumb = #{ordernumb,jdbcType=VARCHAR},
+      workshopNumb = #{workshopnumb,jdbcType=INTEGER},
+      planningTotalProduce = #{planningtotalproduce,jdbcType=INTEGER},
+      totalProduce = #{totalproduce,jdbcType=INTEGER},
+      totalQualify = #{totalqualify,jdbcType=INTEGER},
+      totalDeliver = #{totaldeliver,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      feature = #{feature,jdbcType=VARCHAR}
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.andidz.bizcore.domain.ProductionTask">
+    <id column="taskId" jdbcType="INTEGER" property="taskid" />
+    <result column="orderNumb" jdbcType="VARCHAR" property="ordernumb" />
+    <result column="workshopNumb" jdbcType="INTEGER" property="workshopnumb" />
+    <result column="planningTotalProduce" jdbcType="INTEGER" property="planningtotalproduce" />
+    <result column="totalProduce" jdbcType="INTEGER" property="totalproduce" />
+    <result column="totalQualify" jdbcType="INTEGER" property="totalqualify" />
+    <result column="totalDeliver" jdbcType="INTEGER" property="totaldeliver" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="feature" jdbcType="VARCHAR" property="feature" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    taskId, orderNumb, workshopNumb, planningTotalProduce, totalProduce, totalQualify, 
+    totalDeliver, createTime, status, feature
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from production_task
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from production_task
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.andidz.bizcore.domain.ProductionTask">
+    insert into production_task (taskId, orderNumb, workshopNumb, 
+      planningTotalProduce, totalProduce, totalQualify, 
+      totalDeliver, createTime, status, 
+      feature)
+    values (#{taskid,jdbcType=INTEGER}, #{ordernumb,jdbcType=VARCHAR}, #{workshopnumb,jdbcType=INTEGER}, 
+      #{planningtotalproduce,jdbcType=INTEGER}, #{totalproduce,jdbcType=INTEGER}, #{totalqualify,jdbcType=INTEGER}, 
+      #{totaldeliver,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{feature,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.andidz.bizcore.domain.ProductionTask">
+    insert into production_task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskid != null">
+        taskId,
+      </if>
+      <if test="ordernumb != null">
+        orderNumb,
+      </if>
+      <if test="workshopnumb != null">
+        workshopNumb,
+      </if>
+      <if test="planningtotalproduce != null">
+        planningTotalProduce,
+      </if>
+      <if test="totalproduce != null">
+        totalProduce,
+      </if>
+      <if test="totalqualify != null">
+        totalQualify,
+      </if>
+      <if test="totaldeliver != null">
+        totalDeliver,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="feature != null">
+        feature,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskid != null">
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="ordernumb != null">
+        #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="workshopnumb != null">
+        #{workshopnumb,jdbcType=INTEGER},
+      </if>
+      <if test="planningtotalproduce != null">
+        #{planningtotalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalproduce != null">
+        #{totalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalqualify != null">
+        #{totalqualify,jdbcType=INTEGER},
+      </if>
+      <if test="totaldeliver != null">
+        #{totaldeliver,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null">
+        #{feature,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.andidz.bizcore.domain.ProductionTask">
+    update production_task
+    <set>
+      <if test="ordernumb != null">
+        orderNumb = #{ordernumb,jdbcType=VARCHAR},
+      </if>
+      <if test="workshopnumb != null">
+        workshopNumb = #{workshopnumb,jdbcType=INTEGER},
+      </if>
+      <if test="planningtotalproduce != null">
+        planningTotalProduce = #{planningtotalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalproduce != null">
+        totalProduce = #{totalproduce,jdbcType=INTEGER},
+      </if>
+      <if test="totalqualify != null">
+        totalQualify = #{totalqualify,jdbcType=INTEGER},
+      </if>
+      <if test="totaldeliver != null">
+        totalDeliver = #{totaldeliver,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feature != null">
+        feature = #{feature,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where taskId = #{taskid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.andidz.bizcore.domain.ProductionTask">
     update production_task
     set orderNumb = #{ordernumb,jdbcType=VARCHAR},
       workshopNumb = #{workshopnumb,jdbcType=INTEGER},
