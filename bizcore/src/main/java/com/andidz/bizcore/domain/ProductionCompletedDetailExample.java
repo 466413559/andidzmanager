@@ -1,6 +1,7 @@
 package com.andidz.bizcore.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ProductionCompletedDetailExample {
@@ -324,62 +325,52 @@ public class ProductionCompletedDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeEqualTo(String value) {
+        public Criteria andCreatetimeEqualTo(Date value) {
             addCriterion("createTime =", value, "createtime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotEqualTo(String value) {
+        public Criteria andCreatetimeNotEqualTo(Date value) {
             addCriterion("createTime <>", value, "createtime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeGreaterThan(String value) {
+        public Criteria andCreatetimeGreaterThan(Date value) {
             addCriterion("createTime >", value, "createtime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeGreaterThanOrEqualTo(String value) {
+        public Criteria andCreatetimeGreaterThanOrEqualTo(Date value) {
             addCriterion("createTime >=", value, "createtime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeLessThan(String value) {
+        public Criteria andCreatetimeLessThan(Date value) {
             addCriterion("createTime <", value, "createtime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeLessThanOrEqualTo(String value) {
+        public Criteria andCreatetimeLessThanOrEqualTo(Date value) {
             addCriterion("createTime <=", value, "createtime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeLike(String value) {
-            addCriterion("createTime like", value, "createtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreatetimeNotLike(String value) {
-            addCriterion("createTime not like", value, "createtime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCreatetimeIn(List<String> values) {
+        public Criteria andCreatetimeIn(List<Date> values) {
             addCriterion("createTime in", values, "createtime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotIn(List<String> values) {
+        public Criteria andCreatetimeNotIn(List<Date> values) {
             addCriterion("createTime not in", values, "createtime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeBetween(String value1, String value2) {
+        public Criteria andCreatetimeBetween(Date value1, Date value2) {
             addCriterion("createTime between", value1, value2, "createtime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotBetween(String value1, String value2) {
+        public Criteria andCreatetimeNotBetween(Date value1, Date value2) {
             addCriterion("createTime not between", value1, value2, "createtime");
             return (Criteria) this;
         }
@@ -394,62 +385,52 @@ public class ProductionCompletedDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeEqualTo(String value) {
+        public Criteria andUpdatetimeEqualTo(Date value) {
             addCriterion("updateTime =", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeNotEqualTo(String value) {
+        public Criteria andUpdatetimeNotEqualTo(Date value) {
             addCriterion("updateTime <>", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeGreaterThan(String value) {
+        public Criteria andUpdatetimeGreaterThan(Date value) {
             addCriterion("updateTime >", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeGreaterThanOrEqualTo(String value) {
+        public Criteria andUpdatetimeGreaterThanOrEqualTo(Date value) {
             addCriterion("updateTime >=", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeLessThan(String value) {
+        public Criteria andUpdatetimeLessThan(Date value) {
             addCriterion("updateTime <", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeLessThanOrEqualTo(String value) {
+        public Criteria andUpdatetimeLessThanOrEqualTo(Date value) {
             addCriterion("updateTime <=", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeLike(String value) {
-            addCriterion("updateTime like", value, "updatetime");
-            return (Criteria) this;
-        }
-
-        public Criteria andUpdatetimeNotLike(String value) {
-            addCriterion("updateTime not like", value, "updatetime");
-            return (Criteria) this;
-        }
-
-        public Criteria andUpdatetimeIn(List<String> values) {
+        public Criteria andUpdatetimeIn(List<Date> values) {
             addCriterion("updateTime in", values, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeNotIn(List<String> values) {
+        public Criteria andUpdatetimeNotIn(List<Date> values) {
             addCriterion("updateTime not in", values, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeBetween(String value1, String value2) {
+        public Criteria andUpdatetimeBetween(Date value1, Date value2) {
             addCriterion("updateTime between", value1, value2, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdatetimeNotBetween(String value1, String value2) {
+        public Criteria andUpdatetimeNotBetween(Date value1, Date value2) {
             addCriterion("updateTime not between", value1, value2, "updatetime");
             return (Criteria) this;
         }
@@ -464,62 +445,52 @@ public class ProductionCompletedDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(String value) {
+        public Criteria andStatusEqualTo(Integer value) {
             addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(String value) {
+        public Criteria andStatusNotEqualTo(Integer value) {
             addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(String value) {
+        public Criteria andStatusGreaterThan(Integer value) {
             addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(String value) {
+        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
             addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(String value) {
+        public Criteria andStatusLessThan(Integer value) {
             addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(String value) {
+        public Criteria andStatusLessThanOrEqualTo(Integer value) {
             addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLike(String value) {
-            addCriterion("status like", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotLike(String value) {
-            addCriterion("status not like", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusIn(List<String> values) {
+        public Criteria andStatusIn(List<Integer> values) {
             addCriterion("status in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<String> values) {
+        public Criteria andStatusNotIn(List<Integer> values) {
             addCriterion("status not in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(String value1, String value2) {
+        public Criteria andStatusBetween(Integer value1, Integer value2) {
             addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(String value1, String value2) {
+        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
@@ -534,62 +505,52 @@ public class ProductionCompletedDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(String value) {
+        public Criteria andTypeEqualTo(Integer value) {
             addCriterion("type =", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(String value) {
+        public Criteria andTypeNotEqualTo(Integer value) {
             addCriterion("type <>", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThan(String value) {
+        public Criteria andTypeGreaterThan(Integer value) {
             addCriterion("type >", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThanOrEqualTo(String value) {
+        public Criteria andTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("type >=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThan(String value) {
+        public Criteria andTypeLessThan(Integer value) {
             addCriterion("type <", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThanOrEqualTo(String value) {
+        public Criteria andTypeLessThanOrEqualTo(Integer value) {
             addCriterion("type <=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLike(String value) {
-            addCriterion("type like", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotLike(String value) {
-            addCriterion("type not like", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIn(List<String> values) {
+        public Criteria andTypeIn(List<Integer> values) {
             addCriterion("type in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(List<String> values) {
+        public Criteria andTypeNotIn(List<Integer> values) {
             addCriterion("type not in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeBetween(String value1, String value2) {
+        public Criteria andTypeBetween(Integer value1, Integer value2) {
             addCriterion("type between", value1, value2, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotBetween(String value1, String value2) {
+        public Criteria andTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("type not between", value1, value2, "type");
             return (Criteria) this;
         }
@@ -604,62 +565,52 @@ public class ProductionCompletedDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceEqualTo(String value) {
+        public Criteria andCompletedProduceEqualTo(Integer value) {
             addCriterion("completed_produce =", value, "completedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceNotEqualTo(String value) {
+        public Criteria andCompletedProduceNotEqualTo(Integer value) {
             addCriterion("completed_produce <>", value, "completedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceGreaterThan(String value) {
+        public Criteria andCompletedProduceGreaterThan(Integer value) {
             addCriterion("completed_produce >", value, "completedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceGreaterThanOrEqualTo(String value) {
+        public Criteria andCompletedProduceGreaterThanOrEqualTo(Integer value) {
             addCriterion("completed_produce >=", value, "completedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceLessThan(String value) {
+        public Criteria andCompletedProduceLessThan(Integer value) {
             addCriterion("completed_produce <", value, "completedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceLessThanOrEqualTo(String value) {
+        public Criteria andCompletedProduceLessThanOrEqualTo(Integer value) {
             addCriterion("completed_produce <=", value, "completedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceLike(String value) {
-            addCriterion("completed_produce like", value, "completedProduce");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedProduceNotLike(String value) {
-            addCriterion("completed_produce not like", value, "completedProduce");
-            return (Criteria) this;
-        }
-
-        public Criteria andCompletedProduceIn(List<String> values) {
+        public Criteria andCompletedProduceIn(List<Integer> values) {
             addCriterion("completed_produce in", values, "completedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceNotIn(List<String> values) {
+        public Criteria andCompletedProduceNotIn(List<Integer> values) {
             addCriterion("completed_produce not in", values, "completedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceBetween(String value1, String value2) {
+        public Criteria andCompletedProduceBetween(Integer value1, Integer value2) {
             addCriterion("completed_produce between", value1, value2, "completedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andCompletedProduceNotBetween(String value1, String value2) {
+        public Criteria andCompletedProduceNotBetween(Integer value1, Integer value2) {
             addCriterion("completed_produce not between", value1, value2, "completedProduce");
             return (Criteria) this;
         }
@@ -674,62 +625,52 @@ public class ProductionCompletedDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceEqualTo(String value) {
+        public Criteria andQualifiedProduceEqualTo(Integer value) {
             addCriterion("qualified_produce =", value, "qualifiedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceNotEqualTo(String value) {
+        public Criteria andQualifiedProduceNotEqualTo(Integer value) {
             addCriterion("qualified_produce <>", value, "qualifiedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceGreaterThan(String value) {
+        public Criteria andQualifiedProduceGreaterThan(Integer value) {
             addCriterion("qualified_produce >", value, "qualifiedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceGreaterThanOrEqualTo(String value) {
+        public Criteria andQualifiedProduceGreaterThanOrEqualTo(Integer value) {
             addCriterion("qualified_produce >=", value, "qualifiedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceLessThan(String value) {
+        public Criteria andQualifiedProduceLessThan(Integer value) {
             addCriterion("qualified_produce <", value, "qualifiedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceLessThanOrEqualTo(String value) {
+        public Criteria andQualifiedProduceLessThanOrEqualTo(Integer value) {
             addCriterion("qualified_produce <=", value, "qualifiedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceLike(String value) {
-            addCriterion("qualified_produce like", value, "qualifiedProduce");
-            return (Criteria) this;
-        }
-
-        public Criteria andQualifiedProduceNotLike(String value) {
-            addCriterion("qualified_produce not like", value, "qualifiedProduce");
-            return (Criteria) this;
-        }
-
-        public Criteria andQualifiedProduceIn(List<String> values) {
+        public Criteria andQualifiedProduceIn(List<Integer> values) {
             addCriterion("qualified_produce in", values, "qualifiedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceNotIn(List<String> values) {
+        public Criteria andQualifiedProduceNotIn(List<Integer> values) {
             addCriterion("qualified_produce not in", values, "qualifiedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceBetween(String value1, String value2) {
+        public Criteria andQualifiedProduceBetween(Integer value1, Integer value2) {
             addCriterion("qualified_produce between", value1, value2, "qualifiedProduce");
             return (Criteria) this;
         }
 
-        public Criteria andQualifiedProduceNotBetween(String value1, String value2) {
+        public Criteria andQualifiedProduceNotBetween(Integer value1, Integer value2) {
             addCriterion("qualified_produce not between", value1, value2, "qualifiedProduce");
             return (Criteria) this;
         }

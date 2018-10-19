@@ -1,5 +1,7 @@
 package com.andidz.bizcore.domain;
 
+import java.util.Date;
+
 public class ProductionCompletedDetail {
     private Integer id;
 
@@ -7,17 +9,17 @@ public class ProductionCompletedDetail {
 
     private String ordernumb;
 
-    private String createtime;
+    private Date createtime;
 
-    private String updatetime;
+    private Date updatetime;
 
-    private String status;
+    private Integer status;
 
-    private String type;
+    private Integer type;
 
-    private String completedProduce;
+    private Integer completedProduce;
 
-    private String qualifiedProduce;
+    private Integer qualifiedProduce;
 
     private String operator;
 
@@ -47,52 +49,52 @@ public class ProductionCompletedDetail {
         this.ordernumb = ordernumb == null ? null : ordernumb.trim();
     }
 
-    public String getCreatetime() {
+    public Date getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(String createtime) {
-        this.createtime = createtime == null ? null : createtime.trim();
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public String getUpdatetime() {
+    public Date getUpdatetime() {
         return updatetime;
     }
 
-    public void setUpdatetime(String updatetime) {
-        this.updatetime = updatetime == null ? null : updatetime.trim();
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public String getCompletedProduce() {
+    public Integer getCompletedProduce() {
         return completedProduce;
     }
 
-    public void setCompletedProduce(String completedProduce) {
-        this.completedProduce = completedProduce == null ? null : completedProduce.trim();
+    public void setCompletedProduce(Integer completedProduce) {
+        this.completedProduce = completedProduce;
     }
 
-    public String getQualifiedProduce() {
+    public Integer getQualifiedProduce() {
         return qualifiedProduce;
     }
 
-    public void setQualifiedProduce(String qualifiedProduce) {
-        this.qualifiedProduce = qualifiedProduce == null ? null : qualifiedProduce.trim();
+    public void setQualifiedProduce(Integer qualifiedProduce) {
+        this.qualifiedProduce = qualifiedProduce;
     }
 
     public String getOperator() {
