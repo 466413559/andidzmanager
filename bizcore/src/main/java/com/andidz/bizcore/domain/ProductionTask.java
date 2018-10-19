@@ -5,16 +5,34 @@ import java.util.Date;
 public class ProductionTask {
     private Integer taskid;
 
+    /**
+     * 生产指令，定于该任务属于哪一个订单
+     */
     private String ordernumb;
 
+    /**
+     * 车间号，定义该任务属于哪一个车间
+     */
     private Integer workshopnumb;
 
+    /**
+     * 该任务计划生产的产量数量
+     */
     private Integer planningtotalproduce;
 
+    /**
+     * 已生产的数量
+     */
     private Integer totalproduce;
 
+    /**
+     * 已生产的合格产品的数量
+     */
     private Integer totalqualify;
 
+    /**
+     * 已交接的产品数量
+     */
     private Integer totaldeliver;
 
     private Date createtime;

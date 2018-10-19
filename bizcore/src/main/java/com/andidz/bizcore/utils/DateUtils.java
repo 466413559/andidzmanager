@@ -20,4 +20,16 @@ public class DateUtils {
         today.setSeconds(0);
         return new Date(today.getTime()+(24+lastTime)*60*60*1000);
     }
+
+    /**
+     * 获取指定时间的0点时间
+     * @param date
+     * @return
+     */
+    public static Date getTodayDate(Date date){
+        date.setHours(0);
+        date.setMinutes(0);
+        date.setSeconds(0);
+        return date;
+    }
 }

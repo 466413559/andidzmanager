@@ -1,10 +1,12 @@
 package com.andidz.bizcore.dao;
 
 import com.andidz.bizcore.domain.ProductionTask;
+import com.andidz.bizcore.domain.ProductionTaskExample;
 import com.andidz.bizcore.mapper.ProductionTaskMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -27,7 +29,16 @@ public class ProductionTaskDao {
         return productionTaskMapper.deleteByPrimaryKey(taskId)>0;
     }
 
-    public List<ProductionTask> getProductionTaskByOrderNumb(String orderNumb){
-        return null;
+    public List<ProductionTask> getProductionTaskByOrderNumb(String orderNumb,Integer start, Integer pageSize){
+        List<ProductionTask> result =  new ArrayList<>();
+        ProductionTaskExample example = new ProductionTaskExample();
+        ProductionTaskExample.Criteria criteria = example.createCriteria();
+        criteria.andOrdernumbEqualTo(orderNumb);
+        if(null!= start && null!= pageSize){
+            example.setStart(start);
+            example.setPageSize(pageSize);
+        }
+        result = productionTaskMapper.selectByExample(example);
+        return result;
     }
 }

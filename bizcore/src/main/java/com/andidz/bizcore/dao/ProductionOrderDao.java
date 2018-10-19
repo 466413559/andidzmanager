@@ -16,6 +16,10 @@ public class ProductionOrderDao {
     @Autowired
     private ProductionOrderMapper productionOrderMapper;
 
+    public Integer getProductionOrderCount(){
+        return productionOrderMapper.countByExample(new ProductionOrderExample());
+    }
+
     public List<ProductionOrder> getProductionOrder(Integer productionType,Integer start, Integer pagesize){
         List<ProductionOrder> result = new ArrayList<>();
         ProductionOrderExample example = new ProductionOrderExample();

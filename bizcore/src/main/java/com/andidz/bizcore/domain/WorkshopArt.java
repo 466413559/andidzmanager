@@ -5,6 +5,9 @@ public class WorkshopArt {
 
     private String artname;
 
+    /**
+     * 车间号，与工艺相对应
+     */
     private Integer workshopnumb;
 
     private String artcode;

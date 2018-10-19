@@ -255,63 +255,123 @@ public class ProductionPlanExample {
             return (Criteria) this;
         }
 
-        public Criteria andDataIsNull() {
-            addCriterion("data is null");
+        public Criteria andTaskidIsNull() {
+            addCriterion("taskId is null");
             return (Criteria) this;
         }
 
-        public Criteria andDataIsNotNull() {
-            addCriterion("data is not null");
+        public Criteria andTaskidIsNotNull() {
+            addCriterion("taskId is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDataEqualTo(Date value) {
-            addCriterion("data =", value, "data");
+        public Criteria andTaskidEqualTo(Integer value) {
+            addCriterion("taskId =", value, "taskid");
             return (Criteria) this;
         }
 
-        public Criteria andDataNotEqualTo(Date value) {
-            addCriterion("data <>", value, "data");
+        public Criteria andTaskidNotEqualTo(Integer value) {
+            addCriterion("taskId <>", value, "taskid");
             return (Criteria) this;
         }
 
-        public Criteria andDataGreaterThan(Date value) {
-            addCriterion("data >", value, "data");
+        public Criteria andTaskidGreaterThan(Integer value) {
+            addCriterion("taskId >", value, "taskid");
             return (Criteria) this;
         }
 
-        public Criteria andDataGreaterThanOrEqualTo(Date value) {
-            addCriterion("data >=", value, "data");
+        public Criteria andTaskidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("taskId >=", value, "taskid");
             return (Criteria) this;
         }
 
-        public Criteria andDataLessThan(Date value) {
-            addCriterion("data <", value, "data");
+        public Criteria andTaskidLessThan(Integer value) {
+            addCriterion("taskId <", value, "taskid");
             return (Criteria) this;
         }
 
-        public Criteria andDataLessThanOrEqualTo(Date value) {
-            addCriterion("data <=", value, "data");
+        public Criteria andTaskidLessThanOrEqualTo(Integer value) {
+            addCriterion("taskId <=", value, "taskid");
             return (Criteria) this;
         }
 
-        public Criteria andDataIn(List<Date> values) {
-            addCriterion("data in", values, "data");
+        public Criteria andTaskidIn(List<Integer> values) {
+            addCriterion("taskId in", values, "taskid");
             return (Criteria) this;
         }
 
-        public Criteria andDataNotIn(List<Date> values) {
-            addCriterion("data not in", values, "data");
+        public Criteria andTaskidNotIn(List<Integer> values) {
+            addCriterion("taskId not in", values, "taskid");
             return (Criteria) this;
         }
 
-        public Criteria andDataBetween(Date value1, Date value2) {
-            addCriterion("data between", value1, value2, "data");
+        public Criteria andTaskidBetween(Integer value1, Integer value2) {
+            addCriterion("taskId between", value1, value2, "taskid");
             return (Criteria) this;
         }
 
-        public Criteria andDataNotBetween(Date value1, Date value2) {
-            addCriterion("data not between", value1, value2, "data");
+        public Criteria andTaskidNotBetween(Integer value1, Integer value2) {
+            addCriterion("taskId not between", value1, value2, "taskid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateIsNull() {
+            addCriterion("date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateIsNotNull() {
+            addCriterion("date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateEqualTo(Date value) {
+            addCriterion("date =", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateNotEqualTo(Date value) {
+            addCriterion("date <>", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateGreaterThan(Date value) {
+            addCriterion("date >", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("date >=", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateLessThan(Date value) {
+            addCriterion("date <", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateLessThanOrEqualTo(Date value) {
+            addCriterion("date <=", value, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateIn(List<Date> values) {
+            addCriterion("date in", values, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateNotIn(List<Date> values) {
+            addCriterion("date not in", values, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateBetween(Date value1, Date value2) {
+            addCriterion("date between", value1, value2, "date");
+            return (Criteria) this;
+        }
+
+        public Criteria andDateNotBetween(Date value1, Date value2) {
+            addCriterion("date not between", value1, value2, "date");
             return (Criteria) this;
         }
 

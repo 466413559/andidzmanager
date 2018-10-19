@@ -3,8 +3,14 @@ package com.andidz.bizcore.domain;
 public class Product {
     private Integer id;
 
+    /**
+     * 产品编号
+     */
     private String productnumb;
 
+    /**
+     * 产品类型编码
+     */
     private Integer producttype;
 
     private String productname;
