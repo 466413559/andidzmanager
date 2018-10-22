@@ -20,6 +20,10 @@ target/
 *.iml
 *.iws
 
+*.yml
+
+generatorConfig.xml
+
 # temp file
 
 *.log
