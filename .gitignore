@@ -24,6 +24,8 @@ target/
 
 generatorConfig.xml
 
+*Test.java
+
 # temp file
 
 *.log

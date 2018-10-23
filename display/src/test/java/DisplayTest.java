@@ -15,9 +15,9 @@ public class DisplayTest {
     @Test
     public void userTest(){
         User user1 = new User();
-        user1.setUsername("test4");
+        user1.setUsername("test5");
         user1.setPassword("123456");
-        user1.setUsernick("测试账号4");
+        user1.setUsernick("测试账号5");
         userMapper.insert(user1);
     }
 }

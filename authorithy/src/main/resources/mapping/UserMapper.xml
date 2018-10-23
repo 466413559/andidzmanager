@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ccom.andidz.authorithy.mapper.UserMapper">
+<mapper namespace="com.andidz.authorithy.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.andidz.authorithy.domain.User">
     <id column="Id" jdbcType="INTEGER" property="id" />
     <result column="userNick" jdbcType="VARCHAR" property="usernick" />
@@ -175,84 +175,6 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.andidz.authorithy.domain.User">
-    update user
-    <set>
-      <if test="usernick != null">
-        userNick = #{usernick,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null">
-        userName = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.andidz.authorithy.domain.User">
-    update user
-    set userNick = #{usernick,jdbcType=VARCHAR},
-      userName = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
-    where Id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.andidz.authorithy.domain.User">
-    <id column="Id" jdbcType="INTEGER" property="id" />
-    <result column="userNick" jdbcType="VARCHAR" property="usernick" />
-    <result column="userName" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    Id, userNick, userName, password
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from user
-    where Id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
-    where Id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.andidz.authorithy.domain.User">
-    insert into user (Id, userNick, userName, 
-      password)
-    values (#{id,jdbcType=INTEGER}, #{usernick,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.andidz.authorithy.domain.User">
-    insert into user
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        Id,
-      </if>
-      <if test="usernick != null">
-        userNick,
-      </if>
-      <if test="username != null">
-        userName,
-      </if>
-      <if test="password != null">
-        password,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="usernick != null">
-        #{usernick,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.andidz.authorithy.domain.User">
     update user
     <set>

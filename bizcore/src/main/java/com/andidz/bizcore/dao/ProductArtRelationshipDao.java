@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class ProductArtRelationShipDao {
+public class ProductArtRelationshipDao {
     @Autowired
     private ProductArtRelationshipMapper productArtRelationshipMapper;
 

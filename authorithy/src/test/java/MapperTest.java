@@ -8,9 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 //@SpringBootTest(classes = Application.class)
-//@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)
 public class MapperTest {
-  /*  @Autowired
+    @Autowired
     private UserMapper userMapper;
 
     @Test
@@ -20,5 +20,5 @@ public class MapperTest {
         user1.setPassword("123456");
         user1.setUsernick("测试账号1");
         userMapper.insert(user1);
-    }*/
+    }
 }
