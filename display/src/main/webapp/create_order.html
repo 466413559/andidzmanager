@@ -77,10 +77,13 @@
 		}
 
 	</style>
-
+	<script>
+		$(".navbar-top").load("./top.html");
+	</script>
 </head>
 <body>
 	<div id="wrapper">
+		
 		<nav class="navbar navbar-default navbar-static-top marginbtm0px" role="navigation">
 			<div class="navbar-header" >
 				<a class="navbar-brand fa fa-align-justify" id="nav-sidebar-switch">
@@ -105,9 +108,10 @@
 
 				</li>	
 			</ul>
-			
+
 		</nav>
 
+		
 		<div>
 			<!-- 左侧路由 -->
 			<div class="navbar-default sidebar col-md-2 padding0px " role="navigation" id="nav-sidebar">
@@ -138,25 +142,27 @@
 								生产部
 								<span class="fa arrow floatright">
 								</a>
-								<ul class="nav nav-second-level collapse" id="ul2">
+								<ul class="nav nav-second-level collapse in" id="ul2">
 									<li>
-										<a href="#">各车间查看生产计划</a>
+											<a href="art_order.html">信息录入</a>
 									</li>
 									<li>
-										<a href="#">44444</a>
+											<a href="statistical_info.html">统计信息展示</a>
 									</li>
 								</ul>
 							</li>
 							<li>
-								<a href="#"  data-target="#ul3" data-toggle="collapse" >点击出现二级目录
+								<a href="#"  data-target="#ul3" data-toggle="collapse" >
+									<i class="fa fa-search fa-fw"></i>
+									数据的查询与分析
 									<span class="fa arrow floatright">
 									</a>
-									<ul class="nav nav-second-level collapse" id="ul3">
+									<ul class="nav nav-second-level collapse in" id="ul3">
 										<li>
-											<a href="#">55555</a>
+											<a href="completion_rate.html">完成率查询</a>
 										</li>
 										<li>
-											<a href="#">66666</a>
+											<a href="#">扩展功能1</a>
 										</li>
 									</ul>
 								</li>
@@ -166,101 +172,101 @@
 					</div>
 					<div class="col-md-10" style="height: 1000px;">
 						<!-- <div class="col-md-8 col-md-offset-4"> -->
-						<!-- 面包屑导航 -->
-						<ul class="breadcrumb" style="background:linear-gradient(to right,#f5f5f5,#fff)!important;">
-							<li><a href="#">计划部</a></li>
-							<li  class="active"><a href="create_order.html">选择生产类别和产品</a></li>
-						</ul>
+							<!-- 面包屑导航 -->
+							<ul class="breadcrumb" style="background:linear-gradient(to right,#f5f5f5,#fff)!important;">
+								<li><a href="#">计划部</a></li>
+								<li  class="active"><a href="create_order.html">选择生产类别和产品</a></li>
+							</ul>
 
-						<!-- 创建订单 -->
-						<div>
-							
-							<h3>计划部生成订单</h3>
+							<!-- 创建订单 -->
 							<div>
-							<form>
-								<div class="form-group">
-									<label for="">生产类型</label>
-									<select class="form-control">
-										<option>样品</option>
-										<option>试产</option>
-										<option>批量</option>
-										<option>外购</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputProductType1">产品型号</label>
-									<a href="#" data-toggle="modal" data-target="#myModal">
-										<input type="email" class="form-control" id="exampleInputProductType1" placeholder="ProductType1">
-									</a>
-								</div>
 
-
-								<button type="submit" class="btn btn-default">查询</button>
-								<a class="btn btn-default btn-primary" href="create_order_detail.html">
-								创建新的订单</a>
-							</form>
-							</div>
-							<!-- 模态框（Modal） -->
-							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-											<h4 class="modal-title" id="myModalLabel">产品型号选取</h4>
+								<h3>计划部生成订单</h3>
+								<div>
+									<form>
+										<div class="form-group">
+											<label for="">生产类型</label>
+											<select class="form-control">
+												<option>样品</option>
+												<option>试产</option>
+												<option>批量</option>
+												<option>外购</option>
+											</select>
 										</div>
-										<div class="modal-body">
+										<div class="form-group">
+											<label for="exampleInputProductType1">产品型号</label>
+											<a href="#" data-toggle="modal" data-target="#myModal">
+												<input type="email" class="form-control" id="exampleInputProductType1" placeholder="ProductType1">
+											</a>
+										</div>
 
-											<div class="input-group">
-												<input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索产品型号</span>
+
+										<button type="submit" class="btn btn-default">查询</button>
+										<a class="btn btn-default btn-primary" href="create_order_detail.html">
+										创建新的订单</a>
+									</form>
+								</div>
+								<!-- 模态框（Modal） -->
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h4 class="modal-title" id="myModalLabel">产品型号选取</h4>
 											</div>
-											<!-- 搜索出来的产品列表 -->
-											<ul>
-												<li>产品1111111</li>
-												<li>产品2222222</li>
-												<li>产品3333333</li>
-											</ul>	
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-											<button type="button" class="btn btn-primary">提交更改</button>
-										</div>
-									</div><!-- /.modal-content -->
-								</div><!-- /.modal -->
+											<div class="modal-body">
+
+												<div class="input-group">
+													<input type="text" class="form-control input-lg"><span class="input-group-addon btn btn-primary">搜索产品型号</span>
+												</div>
+												<!-- 搜索出来的产品列表 -->
+												<ul>
+													<li>产品1111111</li>
+													<li>产品2222222</li>
+													<li>产品3333333</li>
+												</ul>	
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+												<button type="button" class="btn btn-primary">提交更改</button>
+											</div>
+										</div><!-- /.modal-content -->
+									</div><!-- /.modal -->
+								</div>
 							</div>
-						</div>
 
-						<span style="border-top:1px dotted #ccc;height:1px;margin:20px 0px;" class="col-md-12"></span>
+							<span style="border-top:1px dotted #ccc;height:1px;margin:20px 0px;" class="col-md-12"></span>
 
 
-						<!-- 当前产品型号的订单情况 -->
-						<div>
-							<h3>当前产品型号的已生成的订单情况 </h3>
-							<table class="table table-striped">
-								<tr><th>生产指令</th><th>产品型号</th><th>计划产量</th><th>创建时间</th><th>修改时间</th><th>预期开工时间</th><th>预期完成时间</th><th>统计信息(已经入库的产品数)</th>
-									<th>订单状态</th></tr>
-									<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
-									<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
-									<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
-									<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
-									<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
-								</table>
-								<!-- 分页导航 -->
+							<!-- 当前产品型号的订单情况 -->
+							<div>
+								<h3>当前产品型号的已生成的订单情况 </h3>
+								<table class="table table-striped">
+									<tr><th>生产指令</th><th>产品型号</th><th>计划产量</th><th>创建时间</th><th>修改时间</th><th>预期开工时间</th><th>预期完成时间</th><th>统计信息(已经入库的产品数)</th>
+										<th>订单状态</th></tr>
+										<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
+										<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
+										<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
+										<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
+										<tr><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td></tr>
+									</table>
+									<!-- 分页导航 -->
 									<center>
-									<ul class="pagination">
-										<li><a href="#">&laquo;</a></li>
-										<li><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#">&raquo;</a></li>
-									</ul>
+										<ul class="pagination">
+											<li><a href="#">&laquo;</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#">&raquo;</a></li>
+										</ul>
 									</center>
-						</div>
+								</div>
 
 
+							</div>
 						</div>
 					</div>
-				</div>
-			</body>
-			</html>
+				</body>
+				</html>
