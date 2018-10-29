@@ -12,7 +12,7 @@
 
     <groupId>com.andidz</groupId>
     <artifactId>display</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
@@ -29,14 +29,31 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <!--如果想在没有web.xml文件的情况下构建WAR，请设置为false-->
+                    &lt;!&ndash;如果想在没有web.xml文件的情况下构建WAR，请设置为false&ndash;&gt;
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <!--设置war包的名字-->
+                    &lt;!&ndash;设置war包的名字&ndash;&gt;
                     <warName>andidz</warName>
                 </configuration>
+            </plugin>-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+
+                    <!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>Application</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
