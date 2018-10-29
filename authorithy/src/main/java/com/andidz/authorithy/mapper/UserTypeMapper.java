@@ -2,9 +2,8 @@ package com.andidz.authorithy.mapper;
 
 import com.andidz.authorithy.domain.UserType;
 import com.andidz.authorithy.domain.UserTypeExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserTypeMapper {
     int countByExample(UserTypeExample example);
@@ -19,13 +18,7 @@ public interface UserTypeMapper {
 
     List<UserType> selectByExample(UserTypeExample example);
 
-    UserType selectByPrimaryKey(Integer id);
-
     int updateByExampleSelective(@Param("record") UserType record, @Param("example") UserTypeExample example);
 
     int updateByExample(@Param("record") UserType record, @Param("example") UserTypeExample example);
-
-    int updateByPrimaryKeySelective(UserType record);
-
-    int updateByPrimaryKey(UserType record);
 }

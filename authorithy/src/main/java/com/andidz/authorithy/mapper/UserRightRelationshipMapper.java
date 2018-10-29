@@ -2,9 +2,8 @@ package com.andidz.authorithy.mapper;
 
 import com.andidz.authorithy.domain.UserRightRelationship;
 import com.andidz.authorithy.domain.UserRightRelationshipExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserRightRelationshipMapper {
     int countByExample(UserRightRelationshipExample example);

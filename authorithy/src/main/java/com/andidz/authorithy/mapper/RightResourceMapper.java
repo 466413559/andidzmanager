@@ -2,9 +2,8 @@ package com.andidz.authorithy.mapper;
 
 import com.andidz.authorithy.domain.RightResource;
 import com.andidz.authorithy.domain.RightResourceExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface RightResourceMapper {
     int countByExample(RightResourceExample example);
