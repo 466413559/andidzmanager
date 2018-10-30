@@ -8,26 +8,6 @@ public class ProductArtRelationshipExample {
 
     protected boolean distinct;
 
-    protected Integer start;
-
-    protected Integer pageSize;
-
-    public Integer getStart() {
-        return start;
-    }
-
-    public void setStart(Integer start) {
-        this.start = start;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
     protected List<Criteria> oredCriteria;
 
     public ProductArtRelationshipExample() {
@@ -184,123 +164,133 @@ public class ProductArtRelationshipExample {
             return (Criteria) this;
         }
 
-        public Criteria andProductidIsNull() {
-            addCriterion("productId is null");
+        public Criteria andProductnumbIsNull() {
+            addCriterion("productNumb is null");
             return (Criteria) this;
         }
 
-        public Criteria andProductidIsNotNull() {
-            addCriterion("productId is not null");
+        public Criteria andProductnumbIsNotNull() {
+            addCriterion("productNumb is not null");
             return (Criteria) this;
         }
 
-        public Criteria andProductidEqualTo(Integer value) {
-            addCriterion("productId =", value, "productid");
+        public Criteria andProductnumbEqualTo(String value) {
+            addCriterion("productNumb =", value, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andProductidNotEqualTo(Integer value) {
-            addCriterion("productId <>", value, "productid");
+        public Criteria andProductnumbNotEqualTo(String value) {
+            addCriterion("productNumb <>", value, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andProductidGreaterThan(Integer value) {
-            addCriterion("productId >", value, "productid");
+        public Criteria andProductnumbGreaterThan(String value) {
+            addCriterion("productNumb >", value, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andProductidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("productId >=", value, "productid");
+        public Criteria andProductnumbGreaterThanOrEqualTo(String value) {
+            addCriterion("productNumb >=", value, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andProductidLessThan(Integer value) {
-            addCriterion("productId <", value, "productid");
+        public Criteria andProductnumbLessThan(String value) {
+            addCriterion("productNumb <", value, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andProductidLessThanOrEqualTo(Integer value) {
-            addCriterion("productId <=", value, "productid");
+        public Criteria andProductnumbLessThanOrEqualTo(String value) {
+            addCriterion("productNumb <=", value, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andProductidIn(List<Integer> values) {
-            addCriterion("productId in", values, "productid");
+        public Criteria andProductnumbLike(String value) {
+            addCriterion("productNumb like", value, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andProductidNotIn(List<Integer> values) {
-            addCriterion("productId not in", values, "productid");
+        public Criteria andProductnumbNotLike(String value) {
+            addCriterion("productNumb not like", value, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andProductidBetween(Integer value1, Integer value2) {
-            addCriterion("productId between", value1, value2, "productid");
+        public Criteria andProductnumbIn(List<String> values) {
+            addCriterion("productNumb in", values, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andProductidNotBetween(Integer value1, Integer value2) {
-            addCriterion("productId not between", value1, value2, "productid");
+        public Criteria andProductnumbNotIn(List<String> values) {
+            addCriterion("productNumb not in", values, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidIsNull() {
-            addCriterion("artId is null");
+        public Criteria andProductnumbBetween(String value1, String value2) {
+            addCriterion("productNumb between", value1, value2, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidIsNotNull() {
-            addCriterion("artId is not null");
+        public Criteria andProductnumbNotBetween(String value1, String value2) {
+            addCriterion("productNumb not between", value1, value2, "productnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidEqualTo(Integer value) {
-            addCriterion("artId =", value, "artid");
+        public Criteria andWorkshopnumbIsNull() {
+            addCriterion("workshopNumb is null");
             return (Criteria) this;
         }
 
-        public Criteria andArtidNotEqualTo(Integer value) {
-            addCriterion("artId <>", value, "artid");
+        public Criteria andWorkshopnumbIsNotNull() {
+            addCriterion("workshopNumb is not null");
             return (Criteria) this;
         }
 
-        public Criteria andArtidGreaterThan(Integer value) {
-            addCriterion("artId >", value, "artid");
+        public Criteria andWorkshopnumbEqualTo(Integer value) {
+            addCriterion("workshopNumb =", value, "workshopnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("artId >=", value, "artid");
+        public Criteria andWorkshopnumbNotEqualTo(Integer value) {
+            addCriterion("workshopNumb <>", value, "workshopnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidLessThan(Integer value) {
-            addCriterion("artId <", value, "artid");
+        public Criteria andWorkshopnumbGreaterThan(Integer value) {
+            addCriterion("workshopNumb >", value, "workshopnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidLessThanOrEqualTo(Integer value) {
-            addCriterion("artId <=", value, "artid");
+        public Criteria andWorkshopnumbGreaterThanOrEqualTo(Integer value) {
+            addCriterion("workshopNumb >=", value, "workshopnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidIn(List<Integer> values) {
-            addCriterion("artId in", values, "artid");
+        public Criteria andWorkshopnumbLessThan(Integer value) {
+            addCriterion("workshopNumb <", value, "workshopnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidNotIn(List<Integer> values) {
-            addCriterion("artId not in", values, "artid");
+        public Criteria andWorkshopnumbLessThanOrEqualTo(Integer value) {
+            addCriterion("workshopNumb <=", value, "workshopnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidBetween(Integer value1, Integer value2) {
-            addCriterion("artId between", value1, value2, "artid");
+        public Criteria andWorkshopnumbIn(List<Integer> values) {
+            addCriterion("workshopNumb in", values, "workshopnumb");
             return (Criteria) this;
         }
 
-        public Criteria andArtidNotBetween(Integer value1, Integer value2) {
-            addCriterion("artId not between", value1, value2, "artid");
+        public Criteria andWorkshopnumbNotIn(List<Integer> values) {
+            addCriterion("workshopNumb not in", values, "workshopnumb");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshopnumbBetween(Integer value1, Integer value2) {
+            addCriterion("workshopNumb between", value1, value2, "workshopnumb");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshopnumbNotBetween(Integer value1, Integer value2) {
+            addCriterion("workshopNumb not between", value1, value2, "workshopnumb");
             return (Criteria) this;
         }
     }

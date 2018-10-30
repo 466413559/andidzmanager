@@ -5,15 +5,21 @@ import com.andidz.bizcore.domain.ProductionTask;
 
 import java.util.List;
 
-public interface ProdcutionTaskServices {
+public interface ProductionTaskServices {
     // task start
     /**
      * 根据生产指令创建生产任务
      * @param order
      * @return
      */
-    public Boolean createProductionTaskByOrder(ProductionOrder order);
+    public Boolean createProductionTaskByOrder(ProductionOrder order) throws Exception;
 
+    /**
+     * 创建生产任务
+     * @param task
+     * @return
+     */
+    public Boolean createProdctionTask(ProductionTask task);
     /**
      * 修改生产任务
      * @param task

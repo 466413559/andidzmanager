@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface WorkshopArtServices {
     /**
-     * 根据产品id获取产品对应的工艺流程
-     * @param productId
+     * 根据产品编码获取产品对应的工艺流程
+     * @param productNumb
      * @return
      */
-    public List<WorkshopArt> queryWorkshopArtByProductId(Integer productId);
+    public List<WorkshopArt> queryWorkshopArtByProductNumb(String productNumb);
 
     /**
      * 添加工艺

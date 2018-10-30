@@ -9,26 +9,6 @@ public class ProductionOrderExample {
 
     protected boolean distinct;
 
-    protected Integer start;
-
-    protected Integer pageSize;
-
-    public Integer getStart() {
-        return start;
-    }
-
-    public void setStart(Integer start) {
-        this.start = start;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
     protected List<Criteria> oredCriteria;
 
     public ProductionOrderExample() {
@@ -682,6 +662,66 @@ public class ProductionOrderExample {
 
         public Criteria andExpctendtimeNotBetween(Date value1, Date value2) {
             addCriterion("expctEndTime not between", value1, value2, "expctendtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountIsNull() {
+            addCriterion("planningProduceCount is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountIsNotNull() {
+            addCriterion("planningProduceCount is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountEqualTo(Integer value) {
+            addCriterion("planningProduceCount =", value, "planningproducecount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountNotEqualTo(Integer value) {
+            addCriterion("planningProduceCount <>", value, "planningproducecount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountGreaterThan(Integer value) {
+            addCriterion("planningProduceCount >", value, "planningproducecount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("planningProduceCount >=", value, "planningproducecount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountLessThan(Integer value) {
+            addCriterion("planningProduceCount <", value, "planningproducecount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountLessThanOrEqualTo(Integer value) {
+            addCriterion("planningProduceCount <=", value, "planningproducecount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountIn(List<Integer> values) {
+            addCriterion("planningProduceCount in", values, "planningproducecount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountNotIn(List<Integer> values) {
+            addCriterion("planningProduceCount not in", values, "planningproducecount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountBetween(Integer value1, Integer value2) {
+            addCriterion("planningProduceCount between", value1, value2, "planningproducecount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPlanningproducecountNotBetween(Integer value1, Integer value2) {
+            addCriterion("planningProduceCount not between", value1, value2, "planningproducecount");
             return (Criteria) this;
         }
 

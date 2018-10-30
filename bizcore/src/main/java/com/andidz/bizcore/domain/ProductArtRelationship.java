@@ -3,9 +3,9 @@ package com.andidz.bizcore.domain;
 public class ProductArtRelationship {
     private Integer id;
 
-    private Integer productid;
+    private String productnumb;
 
-    private Integer artid;
+    private Integer workshopnumb;
 
     public Integer getId() {
         return id;
@@ -15,19 +15,19 @@ public class ProductArtRelationship {
         this.id = id;
     }
 
-    public Integer getProductid() {
-        return productid;
+    public String getProductnumb() {
+        return productnumb;
     }
 
-    public void setProductid(Integer productid) {
-        this.productid = productid;
+    public void setProductnumb(String productnumb) {
+        this.productnumb = productnumb == null ? null : productnumb.trim();
     }
 
-    public Integer getArtid() {
-        return artid;
+    public Integer getWorkshopnumb() {
+        return workshopnumb;
     }
 
-    public void setArtid(Integer artid) {
-        this.artid = artid;
+    public void setWorkshopnumb(Integer workshopnumb) {
+        this.workshopnumb = workshopnumb;
     }
 }

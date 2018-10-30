@@ -11,6 +11,7 @@
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="expctStartTime" jdbcType="TIMESTAMP" property="expctstarttime" />
     <result column="expctEndTime" jdbcType="TIMESTAMP" property="expctendtime" />
+    <result column="planningProduceCount" jdbcType="INTEGER" property="planningproducecount" />
     <result column="completedProduce" jdbcType="INTEGER" property="completedproduce" />
     <result column="feature" jdbcType="VARCHAR" property="feature" />
   </resultMap>
@@ -74,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List">
     Id, orderNumb, productionType, productNumb, createTime, updateTime, status, expctStartTime, 
-    expctEndTime, completedProduce, feature
+    expctEndTime, planningProduceCount, completedProduce, feature
   </sql>
   <select id="selectByExample" parameterType="com.andidz.bizcore.domain.ProductionOrderExample" resultMap="BaseResultMap">
     select
@@ -90,7 +91,7 @@
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
-    <if test="start != 0 or pageSize != 0" >
+    <if test="start != 0 or pageSize != 0">
       limit #{start},#{pageSize}
     </if>
   </select>
@@ -114,11 +115,13 @@
     insert into production_order (Id, orderNumb, productionType, 
       productNumb, createTime, updateTime, 
       status, expctStartTime, expctEndTime, 
-      completedProduce, feature)
+      planningProduceCount, completedProduce, 
+      feature)
     values (#{id,jdbcType=INTEGER}, #{ordernumb,jdbcType=VARCHAR}, #{productiontype,jdbcType=INTEGER}, 
       #{productnumb,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER}, #{expctstarttime,jdbcType=TIMESTAMP}, #{expctendtime,jdbcType=TIMESTAMP}, 
-      #{completedproduce,jdbcType=INTEGER}, #{feature,jdbcType=VARCHAR})
+      #{planningproducecount,jdbcType=INTEGER}, #{completedproduce,jdbcType=INTEGER}, 
+      #{feature,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.andidz.bizcore.domain.ProductionOrder">
     insert into production_order
@@ -149,6 +152,9 @@
       </if>
       <if test="expctendtime != null">
         expctEndTime,
+      </if>
+      <if test="planningproducecount != null">
+        planningProduceCount,
       </if>
       <if test="completedproduce != null">
         completedProduce,
@@ -184,6 +190,9 @@
       </if>
       <if test="expctendtime != null">
         #{expctendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="planningproducecount != null">
+        #{planningproducecount,jdbcType=INTEGER},
       </if>
       <if test="completedproduce != null">
         #{completedproduce,jdbcType=INTEGER},
@@ -229,6 +238,9 @@
       <if test="record.expctendtime != null">
         expctEndTime = #{record.expctendtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.planningproducecount != null">
+        planningProduceCount = #{record.planningproducecount,jdbcType=INTEGER},
+      </if>
       <if test="record.completedproduce != null">
         completedProduce = #{record.completedproduce,jdbcType=INTEGER},
       </if>
@@ -251,6 +263,7 @@
       status = #{record.status,jdbcType=INTEGER},
       expctStartTime = #{record.expctstarttime,jdbcType=TIMESTAMP},
       expctEndTime = #{record.expctendtime,jdbcType=TIMESTAMP},
+      planningProduceCount = #{record.planningproducecount,jdbcType=INTEGER},
       completedProduce = #{record.completedproduce,jdbcType=INTEGER},
       feature = #{record.feature,jdbcType=VARCHAR}
     <if test="_parameter != null">
@@ -284,6 +297,9 @@
       <if test="expctendtime != null">
         expctEndTime = #{expctendtime,jdbcType=TIMESTAMP},
       </if>
+      <if test="planningproducecount != null">
+        planningProduceCount = #{planningproducecount,jdbcType=INTEGER},
+      </if>
       <if test="completedproduce != null">
         completedProduce = #{completedproduce,jdbcType=INTEGER},
       </if>
@@ -303,6 +319,7 @@
       status = #{status,jdbcType=INTEGER},
       expctStartTime = #{expctstarttime,jdbcType=TIMESTAMP},
       expctEndTime = #{expctendtime,jdbcType=TIMESTAMP},
+      planningProduceCount = #{planningproducecount,jdbcType=INTEGER},
       completedProduce = #{completedproduce,jdbcType=INTEGER},
       feature = #{feature,jdbcType=VARCHAR}
     where Id = #{id,jdbcType=INTEGER}

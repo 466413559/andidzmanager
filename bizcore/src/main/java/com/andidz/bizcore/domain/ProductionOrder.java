@@ -5,44 +5,24 @@ import java.util.Date;
 public class ProductionOrder {
     private Integer id;
 
-    /**
-     * 生产指令
-     */
     private String ordernumb;
 
-    /**
-     * 生产类型
-     * eg：批量生产   试产等编号
-     */
     private Integer productiontype;
 
-    /**
-     * 产品编号
-     */
     private String productnumb;
 
     private Date createtime;
 
     private Date updatetime;
 
-    /**
-     * 订单状态
-     */
     private Integer status;
 
-    /**
-     * 预期开始生产时间
-     */
     private Date expctstarttime;
 
-    /**
-     * 预期生产结束时间
-     */
     private Date expctendtime;
 
-    /**
-     * 用于统计该订单以入库的产品数
-     */
+    private Integer planningproducecount;
+
     private Integer completedproduce;
 
     private String feature;
@@ -117,6 +97,14 @@ public class ProductionOrder {
 
     public void setExpctendtime(Date expctendtime) {
         this.expctendtime = expctendtime;
+    }
+
+    public Integer getPlanningproducecount() {
+        return planningproducecount;
+    }
+
+    public void setPlanningproducecount(Integer planningproducecount) {
+        this.planningproducecount = planningproducecount;
     }
 
     public Integer getCompletedproduce() {

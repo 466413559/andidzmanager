@@ -21,17 +21,17 @@ public class ProductArtRelationshipDao {
         return productArtRelationshipMapper.deleteByPrimaryKey(id)>0;
     }
 
-    public boolean deleteRelationshipByProductId(Integer productId){
+    public boolean deleteRelationshipByProductId(String productNumb){
         ProductArtRelationshipExample example = new ProductArtRelationshipExample();
         ProductArtRelationshipExample.Criteria criteria = example.createCriteria();
-        criteria.andProductidEqualTo(productId);
+        criteria.andProductnumbEqualTo(productNumb);
         return productArtRelationshipMapper.deleteByExample(example)>0;
     }
 
-    public List<ProductArtRelationship> getRelationshipByProductId(Integer productId){
+    public List<ProductArtRelationship> getRelationshipByProductNumb(String productNumb){
         ProductArtRelationshipExample example = new ProductArtRelationshipExample();
         ProductArtRelationshipExample.Criteria criteria = example.createCriteria();
-        criteria.andProductidEqualTo(productId);
+        criteria.andProductnumbEqualTo(productNumb);
         return productArtRelationshipMapper.selectByExample(example);
     }
 }
