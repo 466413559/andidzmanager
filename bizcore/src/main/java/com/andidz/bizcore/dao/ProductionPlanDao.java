@@ -17,6 +17,10 @@ public class ProductionPlanDao {
     @Autowired
     private ProductionPlanMapper productionPlanMapper;
 
+    public ProductionPlan getPlanById(Integer id){
+        return productionPlanMapper.selectByPrimaryKey(id);
+    }
+
     public Integer getProductionPlanCount(){
         return productionPlanMapper.countByExample(new ProductionPlanExample());
     }

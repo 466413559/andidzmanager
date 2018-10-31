@@ -6,8 +6,11 @@ import java.util.List;
 
 public interface ProductionOrderServices {
 
-    public Integer getOederCount();
+    public Integer getOrderCount();
 
+    public ProductionOrder getOrderById(Integer id);
+
+    public ProductionOrder getOrderByOrderNumb(String orderNumb);
     //order start
     /**
      * 根据生产类型分页获取该类型下的生产指令（订单）

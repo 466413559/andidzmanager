@@ -177,15 +177,16 @@
 							</ul>
 
 							<div class="col-md-10">
-							<h4>当前操作的产品型号为<span style="font-weight: 700;">&nbsp  &nbspProduct11</span></h4>
-							<button class="btn btn-primary btn-default mgt10px" data-target="#InputInfo" data-toggle="modal" >班长录入信息</button>
+								<h4>当前操作的产品型号为<span style="font-weight: 700;">&nbsp  &nbspProduct11</span></h4>
+								<h4>当前操作的订单号为<span style="font-weight: 700;">&nbsp  &nbspOrder111</span></h4>
+								<button class="btn btn-primary btn-default mgt10px" data-target="#handOver" data-toggle="modal">交接产品</button>
 							</div>
 
 							<!-- 分割线 -->
 							<span style="border-top:1px dotted #ccc;height:1px;margin:20px 0px;" class="col-md-12"></span>
 							<!-- 查询订单和录入信息 -->
 							<div class="col-md-10">
-								<h3>生产部各车间任务展示</h3>	
+								<h3>当前车间 当前订单的生产计划</h3>	
 								<div  class="col-md-6 pd0px" >
 									<form action="">
 										<div class="input-group">
@@ -207,11 +208,11 @@
 										<th>完成率</th>
 										<th>合格率</th><th>操作</th>
 									</tr>
-									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#" >修改信息</a></td></tr>
-									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#">修改信息</a></td></tr>
-									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#" >修改信息</a></td></tr>
-									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#" >修改信息</a></td></tr>
-									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#" >修改信息</a></td></tr>
+									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#"  data-target="#InputInfo" data-toggle="modal">信息录入</a></td></tr>
+									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#"  data-target="#InputInfo" data-toggle="modal">信息录入</a></td></tr>
+									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#"  data-target="#InputInfo" data-toggle="modal">信息录入</a></td></tr>
+									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#"  data-target="#InputInfo" data-toggle="modal">信息录入</a></td></tr>
+									<tr><td>1111</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td>222</td><td><a href="#"  data-target="#InputInfo" data-toggle="modal">信息录入</a></td></tr>
 								</table>
 								<!-- 分页导航 -->
 								<center>
@@ -276,6 +277,54 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="modal fade" id="handOver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title" id="myModalLabel">产品交接</h4>
+										</div>
+										<div class="modal-body">
+
+											<form action="" class="form-horizontal" role="form">
+												
+												<div class="form-group">
+													<label for="orderNumb" class="col-md-4">订单号</label>
+													<div class="col-md-8">
+														<input type="text" class="form-control " id="orderNumb" placeholder="1111" disabled="disabled">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="productType" class="col-md-4">产品型号</label>
+													<div class="col-md-8">
+														<input type="text" class="form-control " id="productType" placeholder="1111" disabled="disabled">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label for="completedProduce" class="col-md-4">完成数量</label>
+													<div class="col-md-8">
+														<input type="text" class="form-control" id="completedProduce" placeholder="completedProduce">
+													</div>
+												</div>
+												
+												<div class="form-group">
+													<label for="qualifiedProduce" class="col-md-4">合格数量</label>
+													<div class="col-md-8">
+														<input type="text" class="form-control" id="qualifiedProduce" placeholder="qualifiedProduce">
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+											<button type="button" class="btn btn-primary">完成交接</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>

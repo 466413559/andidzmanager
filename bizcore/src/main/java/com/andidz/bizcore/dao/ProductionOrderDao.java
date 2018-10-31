@@ -20,6 +20,10 @@ public class ProductionOrderDao {
         return productionOrderMapper.countByExample(new ProductionOrderExample());
     }
 
+    public ProductionOrder getOrderById(Integer id){
+        return productionOrderMapper.selectByPrimaryKey(id);
+    }
+
     public List<ProductionOrder> getProductionOrder(Integer productionType,Integer start, Integer pagesize){
         List<ProductionOrder> result = new ArrayList<>();
         ProductionOrderExample example = new ProductionOrderExample();

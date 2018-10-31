@@ -10,4 +10,6 @@ public interface ProductServices {
      * @return
      */
     public Product getProductByProductNumb(String productNumb);
+
+    public Product getProductByProductId(Integer id);
 }

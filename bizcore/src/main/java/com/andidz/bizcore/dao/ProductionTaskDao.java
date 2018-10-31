@@ -41,4 +41,8 @@ public class ProductionTaskDao {
         result = productionTaskMapper.selectByExample(example);
         return result;
     }
+
+    public ProductionTask getProductionTaskById(Integer taskId){
+        return productionTaskMapper.selectByPrimaryKey(taskId);
+    }
 }

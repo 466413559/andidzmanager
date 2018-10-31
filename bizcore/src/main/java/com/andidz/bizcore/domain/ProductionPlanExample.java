@@ -495,6 +495,66 @@ public class ProductionPlanExample {
             return (Criteria) this;
         }
 
+        public Criteria andQualifiedproduceIsNull() {
+            addCriterion("qualifiedProduce is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceIsNotNull() {
+            addCriterion("qualifiedProduce is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceEqualTo(Integer value) {
+            addCriterion("qualifiedProduce =", value, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceNotEqualTo(Integer value) {
+            addCriterion("qualifiedProduce <>", value, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceGreaterThan(Integer value) {
+            addCriterion("qualifiedProduce >", value, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceGreaterThanOrEqualTo(Integer value) {
+            addCriterion("qualifiedProduce >=", value, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceLessThan(Integer value) {
+            addCriterion("qualifiedProduce <", value, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceLessThanOrEqualTo(Integer value) {
+            addCriterion("qualifiedProduce <=", value, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceIn(List<Integer> values) {
+            addCriterion("qualifiedProduce in", values, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceNotIn(List<Integer> values) {
+            addCriterion("qualifiedProduce not in", values, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceBetween(Integer value1, Integer value2) {
+            addCriterion("qualifiedProduce between", value1, value2, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
+        public Criteria andQualifiedproduceNotBetween(Integer value1, Integer value2) {
+            addCriterion("qualifiedProduce not between", value1, value2, "qualifiedproduce");
+            return (Criteria) this;
+        }
+
         public Criteria andTargetcompletionIsNull() {
             addCriterion("targetCompletion is null");
             return (Criteria) this;

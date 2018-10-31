@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.andidz.bizcore.domain.ProductionCompletedDetail">
     <id column="Id" jdbcType="INTEGER" property="id" />
     <result column="planId" jdbcType="INTEGER" property="planid" />
+    <result column="taskId" jdbcType="INTEGER" property="taskid" />
     <result column="orderNumb" jdbcType="VARCHAR" property="ordernumb" />
     <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
     <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
@@ -73,8 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    Id, planId, orderNumb, createTime, updateTime, status, type, completed_produce, qualified_produce, 
-    operator, feature
+    Id, planId, taskId, orderNumb, createTime, updateTime, status, type, completed_produce, 
+    qualified_produce, operator, feature
   </sql>
   <select id="selectByExample" parameterType="com.andidz.bizcore.domain.ProductionCompletedDetailExample" resultMap="BaseResultMap">
     select
@@ -89,6 +90,9 @@
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
+    </if>
+    <if test="start != 0 or pageSize != 0">
+      limit #{start},#{pageSize}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -108,14 +112,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.andidz.bizcore.domain.ProductionCompletedDetail">
-    insert into production_completed_detail (Id, planId, orderNumb, 
-      createTime, updateTime, status, 
-      type, completed_produce, qualified_produce, 
-      operator, feature)
-    values (#{id,jdbcType=INTEGER}, #{planid,jdbcType=INTEGER}, #{ordernumb,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
-      #{type,jdbcType=INTEGER}, #{completedProduce,jdbcType=INTEGER}, #{qualifiedProduce,jdbcType=INTEGER}, 
-      #{operator,jdbcType=VARCHAR}, #{feature,jdbcType=VARCHAR})
+    insert into production_completed_detail (Id, planId, taskId, 
+      orderNumb, createTime, updateTime, 
+      status, type, completed_produce, 
+      qualified_produce, operator, feature
+      )
+    values (#{id,jdbcType=INTEGER}, #{planid,jdbcType=INTEGER}, #{taskid,jdbcType=INTEGER}, 
+      #{ordernumb,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{completedProduce,jdbcType=INTEGER}, 
+      #{qualifiedProduce,jdbcType=INTEGER}, #{operator,jdbcType=VARCHAR}, #{feature,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.andidz.bizcore.domain.ProductionCompletedDetail">
     insert into production_completed_detail
@@ -125,6 +131,9 @@
       </if>
       <if test="planid != null">
         planId,
+      </if>
+      <if test="taskid != null">
+        taskId,
       </if>
       <if test="ordernumb != null">
         orderNumb,
@@ -160,6 +169,9 @@
       </if>
       <if test="planid != null">
         #{planid,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null">
+        #{taskid,jdbcType=INTEGER},
       </if>
       <if test="ordernumb != null">
         #{ordernumb,jdbcType=VARCHAR},
@@ -205,6 +217,9 @@
       <if test="record.planid != null">
         planId = #{record.planid,jdbcType=INTEGER},
       </if>
+      <if test="record.taskid != null">
+        taskId = #{record.taskid,jdbcType=INTEGER},
+      </if>
       <if test="record.ordernumb != null">
         orderNumb = #{record.ordernumb,jdbcType=VARCHAR},
       </if>
@@ -241,6 +256,7 @@
     update production_completed_detail
     set Id = #{record.id,jdbcType=INTEGER},
       planId = #{record.planid,jdbcType=INTEGER},
+      taskId = #{record.taskid,jdbcType=INTEGER},
       orderNumb = #{record.ordernumb,jdbcType=VARCHAR},
       createTime = #{record.createtime,jdbcType=TIMESTAMP},
       updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
@@ -259,6 +275,9 @@
     <set>
       <if test="planid != null">
         planId = #{planid,jdbcType=INTEGER},
+      </if>
+      <if test="taskid != null">
+        taskId = #{taskid,jdbcType=INTEGER},
       </if>
       <if test="ordernumb != null">
         orderNumb = #{ordernumb,jdbcType=VARCHAR},
@@ -293,6 +312,7 @@
   <update id="updateByPrimaryKey" parameterType="com.andidz.bizcore.domain.ProductionCompletedDetail">
     update production_completed_detail
     set planId = #{planid,jdbcType=INTEGER},
+      taskId = #{taskid,jdbcType=INTEGER},
       orderNumb = #{ordernumb,jdbcType=VARCHAR},
       createTime = #{createtime,jdbcType=TIMESTAMP},
       updateTime = #{updatetime,jdbcType=TIMESTAMP},

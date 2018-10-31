@@ -21,6 +21,10 @@ public class ProductionCompletedDetailDao {
         return productionCompletedDetailMapper.insert(detail) > 0;
     }
 
+    public ProductionCompletedDetail getDetailById(Integer id){
+        return productionCompletedDetailMapper.selectByPrimaryKey(id);
+    }
+
     /**
      * 按条件查询
      * @return

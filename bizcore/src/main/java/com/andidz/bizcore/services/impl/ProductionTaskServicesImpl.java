@@ -40,7 +40,7 @@ public class ProductionTaskServicesImpl implements ProductionTaskServices {
             task.setWorkshopnumb(workshopArts.get(i).getWorkshopnumb());
             task.setStatus(0);
             task.setCreatetime(new Date());
-            createProdctionTask(task);
+            if(!createProdctionTask(task))throw new Exception();
         }
         return true;
     }
@@ -57,7 +57,12 @@ public class ProductionTaskServicesImpl implements ProductionTaskServices {
     }
 
     @Override
-    public List<ProductionTask> queryTaskByOrder(String order, Integer status, Integer start, Integer pageSize) {
-        return null;
+    public List<ProductionTask> queryTaskByOrder(String orderNumb, Integer start, Integer pageSize) {
+        return productionTaskDao.getProductionTaskByOrderNumb(orderNumb,start,pageSize);
+    }
+
+    @Override
+    public ProductionTask queryTaskById(Integer taskId) {
+        return productionTaskDao.getProductionTaskById(taskId);
     }
 }

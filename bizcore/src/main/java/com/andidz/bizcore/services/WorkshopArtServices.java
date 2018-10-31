@@ -35,6 +35,13 @@ public interface WorkshopArtServices {
     public Boolean addProductArt(Integer productId,List<Integer> shopNumbs);
 
     /**
+     * 添加产品工艺对应关系
+     * @param productNumb
+     * @param shopNumbs
+     * @return
+     */
+    public Boolean addProductArt(String productNumb,List<Integer> shopNumbs) throws Exception;
+    /**
      * 分页获取所有车间工艺信息
      * @param start
      * @param pageSize

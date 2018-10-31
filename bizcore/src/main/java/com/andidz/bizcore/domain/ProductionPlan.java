@@ -3,37 +3,20 @@ package com.andidz.bizcore.domain;
 import java.util.Date;
 
 public class ProductionPlan {
-
     private Integer planid;
 
-    /**
-     * 生产指令，用来定义属于哪一个订单
-     */
     private String ordernumb;
 
-    /**
-     * 任务id，用来定义该计划属于哪一个任务即车间
-     */
     private Integer taskid;
 
-    /**
-     * 任务时间，用来定义是哪一天的任务
-     */
     private Date date;
 
-    /**
-     * 计划当天完成的 产量
-     */
     private Integer planningproduce;
 
-    /**
-     * 该计划已完成的产量
-     */
     private Integer completedproduce;
 
-    /**
-     * 目标完成率（与车间完成率挂钩）
-     */
+    private Integer qualifiedproduce;
+
     private Double targetcompletion;
 
     private Date createtime;
@@ -90,6 +73,14 @@ public class ProductionPlan {
 
     public void setCompletedproduce(Integer completedproduce) {
         this.completedproduce = completedproduce;
+    }
+
+    public Integer getQualifiedproduce() {
+        return qualifiedproduce;
+    }
+
+    public void setQualifiedproduce(Integer qualifiedproduce) {
+        this.qualifiedproduce = qualifiedproduce;
     }
 
     public Double getTargetcompletion() {

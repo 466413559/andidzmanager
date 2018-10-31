@@ -7,6 +7,8 @@ public class ProductionCompletedDetail {
 
     private Integer planid;
 
+    private Integer taskid;
+
     private String ordernumb;
 
     private Date createtime;
@@ -39,6 +41,14 @@ public class ProductionCompletedDetail {
 
     public void setPlanid(Integer planid) {
         this.planid = planid;
+    }
+
+    public Integer getTaskid() {
+        return taskid;
+    }
+
+    public void setTaskid(Integer taskid) {
+        this.taskid = taskid;
     }
 
     public String getOrdernumb() {

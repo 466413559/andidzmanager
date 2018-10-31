@@ -29,12 +29,18 @@ public interface ProductionTaskServices {
 
     /**
      * 根据生产令号和状态分页查询生产任务
-     * @param order 生产令号 不能为null
-     * @param status 为null时查询所有状态
+     * @param orderNumb 生产令号 不能为null
      * @param start
      * @param pageSize
      * @return
      */
-    public List<ProductionTask> queryTaskByOrder(String order, Integer status, Integer start, Integer pageSize);
+    public List<ProductionTask> queryTaskByOrder(String orderNumb, Integer start, Integer pageSize);
+
+    /**
+     * 根据taskId获取task信息
+     * @param taskId
+     * @return
+     */
+    public ProductionTask queryTaskById(Integer taskId);
 //task  end
 }

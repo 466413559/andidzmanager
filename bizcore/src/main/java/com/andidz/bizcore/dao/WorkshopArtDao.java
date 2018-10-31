@@ -13,8 +13,11 @@ public class WorkshopArtDao {
     @Autowired
     private WorkshopArtMapper workshopArtMapper;
 
-    public List<WorkshopArt> getWorkshopArt(){
-        return workshopArtMapper.selectByExample(new WorkshopArtExample());
+    public List<WorkshopArt> getWorkshopArt(Integer start, Integer pageSize){
+        WorkshopArtExample example = new WorkshopArtExample();
+        example.setStart(start);
+        example.setPageSize(pageSize);
+        return workshopArtMapper.selectByExample(example);
     }
 
     /**
@@ -68,5 +71,9 @@ public class WorkshopArtDao {
         WorkshopArtExample.Criteria criteria = example.createCriteria();
         criteria.andWorkshopnumbEqualTo(numb);
         return workshopArtMapper.deleteByExample(example)>0;
+    }
+
+    public Boolean updateWorkshopArt(WorkshopArt workshopArt){
+        return workshopArtMapper.updateByPrimaryKey(workshopArt)>0;
     }
 }

@@ -5,6 +5,8 @@ import java.util.Date;
 public class ProductionCompletedDetailCondition {
     private Integer planid;
 
+    private Integer taskId;
+
     private String ordernumb;
 
     private Date date;
@@ -41,6 +43,14 @@ public class ProductionCompletedDetailCondition {
 
     public void setPlanid(Integer planid) {
         this.planid = planid;
+    }
+
+    public Integer getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(Integer taskId) {
+        this.taskId = taskId;
     }
 
     public String getOrdernumb() {

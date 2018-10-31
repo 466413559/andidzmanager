@@ -4,6 +4,7 @@ import com.andidz.bizcore.dao.ProductArtRelationshipDao;
 import com.andidz.bizcore.dao.ProductionOrderDao;
 import com.andidz.bizcore.dao.WorkshopArtDao;
 import com.andidz.bizcore.domain.*;
+import com.andidz.bizcore.domain.condition.ProductionOrderCondition;
 import com.andidz.bizcore.services.ProductServices;
 import com.andidz.bizcore.services.ProductionOrderServices;
 import com.andidz.bizcore.services.ProductionTaskServices;
@@ -31,8 +32,22 @@ public class ProductionOrderServicesImpl implements ProductionOrderServices {
     private ProductServices productServices;
 
     @Override
-    public Integer getOederCount() {
+    public Integer getOrderCount() {
         return productionOrderDao.getProductionOrderCount();
+    }
+
+    @Override
+    public ProductionOrder getOrderById(Integer id) {
+        return productionOrderDao.getOrderById(id);
+    }
+
+    @Override
+    public ProductionOrder getOrderByOrderNumb(String orderNumb) {
+        ProductionOrderCondition condition = new ProductionOrderCondition();
+        condition.setOrdernumb(orderNumb);
+        List<ProductionOrder> result = productionOrderDao.getProductionOrderBySearchCondition(condition);
+        if(null == result || result.isEmpty())return null;
+        return result.get(0);
     }
 
     @Override
@@ -71,7 +86,7 @@ public class ProductionOrderServicesImpl implements ProductionOrderServices {
             task.setWorkshopnumb(shopNumbs.get(i));
             task.setStatus(0);
             task.setCreatetime(new Date());
-            productionTaskServices.createProdctionTask(task);
+            if(!productionTaskServices.createProdctionTask(task))throw new Exception();
         }
         return true;
     }
